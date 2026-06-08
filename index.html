@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alunos do 4INFO3</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark">
+    <input type="button" id="dark-mode" value="☀️">
     <h1>Alunos do 4INFO3</h1>
     <h2>Inserir novo aluno:</h2>
     <label>
@@ -16,7 +18,7 @@
         Idade:
         <input type="number" id="novo-idade">
     </label>
-    <button id="enviar">Enviar</button><br>
+    <input type="button" id="enviar" value="Enviar"><br>
     <span id="feedback"></span>
     <ul id="lista-alunos"></ul>
 
