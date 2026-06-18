@@ -9,9 +9,15 @@ const buscarAlunos = async () => {
 };
 
 const enviarAluno = async () => {
-    const nome = document.querySelector("#input-nome").value;
-    const idade = document.querySelector("#input-idade").value;
+    const nome = document.querySelector("#input-nome").value.trim();
+    const idade = document.querySelector("#input-idade").value.trim();
+    const email = document.querySelector("#input-email").value.trim();
     const feedback = document.querySelector('#feedback');
+
+    if (!nome || !email || !idade) {
+        feedback. textContent = "⚠️ ALERTA: Nome, Email e Telefone são obrigatórios para o registro!";
+        style.color = "var(--detalhe-alerta)";
+    }
 
     try {
         const options = {
@@ -19,11 +25,16 @@ const enviarAluno = async () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({user: { nome, idade }})
+            body: JSON.stringify({user: { nome, idade,email}})
         }
         let resposta = await fetch('http://localhost:3000/users', options);
         resposta = await resposta.json();
         feedback.textContent = resposta;
+
+        document.querySelector("#input-nome").value = '';
+        document.querySelector("#input-idade").value = '';
+        document.querySelector("#input-email").value = '';
+
         limparAlunos();
         await renderAlunos();
     } catch (e) {

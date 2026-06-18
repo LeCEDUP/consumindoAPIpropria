@@ -65,7 +65,8 @@ label {
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="email"] {
   display: block;
   width: 260px;
   padding: 10px;
@@ -79,7 +80,8 @@ input[type="number"] {
 }
 
 input[type="text"]:focus,
-input[type="number"]:focus {
+input[type="number"]:focus,
+input[type="email"]:focus {
   outline: none;
   border-color: var(--detalhe-alerta);
 }
