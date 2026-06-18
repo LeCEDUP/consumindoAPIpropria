@@ -139,6 +139,8 @@ const trocarCores = (evento) => {
         document.head.querySelector('#css').setAttribute('href', 'joao.css');
     } else if (estado === 'thewalkingdead') {
         document.head.querySelector('#css').setAttribute('href', 'Marlon.css');
+    } else if (estado === 'blackstar') {
+        document.head.querySelector('#css').setAttribute('href', 'predo.css');
     }
 }
 
