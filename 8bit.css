@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #eb19b6;
+  color: #fffefe;
+  background-image: url("img/SakuraField.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-size: 100% 100%;
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,  
+     1px  1px 0 #000;
+}
+
+ul, #feedback {
+  backdrop-filter: blur(10px);
+  width: 30%;
+}
+
+ul {
+  list-style-type: circle;
+  list-style-image: url("img/Flor.png");
+}
+
+#titulo {
+  margin-top: 8%;
+}
+

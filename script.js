@@ -141,8 +141,9 @@ const trocarCores = (evento) => {
         document.head.querySelector('#css').setAttribute('href', 'Marlon.css');
     } else if (estado === 'blackstar') {
         document.head.querySelector('#css').setAttribute('href', 'predo.css');
-    }
-    
+    } else if (estado === '8bit') {
+        document.head.querySelector('#css').setAttribute('href', '8bit.css');
+    }  
 }
 
 const selectMode = document.querySelector('#select-tema');
