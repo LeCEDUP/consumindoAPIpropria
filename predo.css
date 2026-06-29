@@ -105,7 +105,10 @@ section::before {
     font-size: 10px;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"] {
     background: #111;
     border: 2px solid #ff00ff;
     color: #00ffff;
