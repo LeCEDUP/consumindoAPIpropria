@@ -25,11 +25,14 @@ const enviarAluno = async () => {
     const telefone = document.querySelector("#input-telefone").value.trim();
     const feedback = document.querySelector('#feedback');
 
-    if (!nome || !nascimento || !telefone || !email) {
-        feedback.textContent = "⚠️ ALERTA: Nome, Data de Nascimento, Telefone e Email são obrigatórios para o registro!";
+    if (!nome || !nascimento) {
+        feedback.textContent = "⚠️ ALERTA: Nome e Data de Nascimento são obrigatórios para o registro!";
         style.color = "var(--detalhe-alerta)";
     } else if (!validarEmail(email)) {
         feedback.textContent = "⚠️ ALERTA: Email inválido! Exemplo correto.: seuemail@email.com";
+        style.color = "var(--detalhe-alerta)";
+    } else if (telefone.length !== 15 || telefone.length !== 14) {
+        feedback.textContent = "⚠️ ALERTA: Telefone inválido! Quantidade de números menor que o necessário!";
         style.color = "var(--detalhe-alerta)";
     } else {
         try {
@@ -156,8 +159,8 @@ const atualizarAluno = async (evento) => {
     const email = document.querySelector('#input-editar-email').value.trim();
     const feedback = document.querySelector('#feedback');
 
-    if (!nome || !nascimento || !telefone || !email) {
-        feedback.textContent = "⚠️ ALERTA: Nome, Data de Nascimento, Telefone e Email são obrigatórios para o registro!";
+    if (!nome || !nascimento) {
+        feedback.textContent = "⚠️ ALERTA: Nome e Data de Nascimento são obrigatórios para o registro!";
         style.color = "var(--detalhe-alerta)";
     } else {
         try {
@@ -206,9 +209,38 @@ const trocarCores = (evento) => {
     }
 }
 
+// Função feita com o auxílio do Gemini
+const mascaraTelefone = (event) => {
+    let input = event.target;
+    let value = input.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+
+    // Limita o tamanho máximo para evitar estouro (11 dígitos para celular com DDD)
+    if (value.length > 11) value = value.slice(0, 11);
+
+    // Aplica a máscara dependendo da quantidade de dígitos
+    if (value.length > 10) {
+        // Formato Celular: (XX) XXXXX-XXXX
+        value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+    } else if (value.length > 6) {
+        // Formato Telefone Fixo: (XX) XXXX-XXXX
+        value = value.replace(/^(\d{2})(\d{4})(\d{0,4})$/, '($1) $2-$3');
+    } else if (value.length > 2) {
+        // Formato parcial: (XX) XXXX
+        value = value.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
+    } else if (value.length > 0) {
+        // Formato inicial: (XX
+        value = value.replace(/^(\d*)$/, '($1');
+    }
+
+    input.value = value;
+}
+
+
 const selectMode = document.querySelector('#select-tema');
 const botaoEnviar = document.querySelector('#botao-enviar');
+const inputTel = document.querySelector('#input-telefone');
 renderAlunos()
 
-selectMode.addEventListener('click', trocarCores)
+selectMode.addEventListener('click', trocarCores);
+inputTel.addEventListener('input', mascaraTelefone);
 botaoEnviar.addEventListener('click', enviarAluno);

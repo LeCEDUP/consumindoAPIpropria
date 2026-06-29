@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alunos do 4INFO3</title>
     <link id="css" rel="stylesheet" href="light.css">
-
+    <style>
+        .obrigatorio {
+            color: brown;
+        }
+    </style>
 </head>
 <body>
     <label id="label-select"> 
@@ -21,21 +25,20 @@
     <h1 id="titulo">Alunos do 4INFO3</h1>
     <h2 id="subtitulo">Inserir novo aluno:</h2>
     <label id="label-input-nome">
-        Nome:
-        <input type="text" id="input-nome">
-    </label>
+        Nome<span class="obrigatorio">*</span>:
+        <input type="text" id="input-nome" placeholder="Insira seu nome completo...">    </label>
     <label id="label-input-nascimento">
-        Data de nascimento:
+        Data de nascimento<span class="obrigatorio">*</span>:
         <input type="date" id="input-nascimento">
     </label>
     <label id="label-input-telefone">
         Telefone:
-        <input type="tel" id="input-telefone" placeholder="(00) 00000-0000">
+        <input type="tel" id="input-telefone" placeholder="(00) 00000-0000" maxlength="15">
     </label>
 
     <label id="label-input-email">
         Email:
-        <input type="email" id="input-email">
+        <input type="email" id="input-email" placeholder="seuemail@email.com">
     </label>
 
     <input type="button" id="botao-enviar" value="Enviar"><br>
