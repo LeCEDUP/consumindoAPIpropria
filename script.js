@@ -25,8 +25,8 @@ const enviarAluno = async () => {
     const telefone = document.querySelector("#input-telefone").value.trim();
     const feedback = document.querySelector('#feedback');
 
-    if (!nome || !nascimento || !telefone || !email) {
-        feedback.textContent = "⚠️ ALERTA: Nome, Data de Nascimento, Telefone e Email são obrigatórios para o registro!";
+    if (!nome || !nascimento) {
+        feedback.textContent = "⚠️ ALERTA: Nome e Data de Nascimento são obrigatórios para o registro!";
         style.color = "var(--detalhe-alerta)";
     } else if (!validarEmail(email)) {
         feedback.textContent = "⚠️ ALERTA: Email inválido! Exemplo correto.: seuemail@email.com";
@@ -159,8 +159,8 @@ const atualizarAluno = async (evento) => {
     const email = document.querySelector('#input-editar-email').value.trim();
     const feedback = document.querySelector('#feedback');
 
-    if (!nome || !nascimento || !telefone || !email) {
-        feedback.textContent = "⚠️ ALERTA: Nome, Data de Nascimento, Telefone e Email são obrigatórios para o registro!";
+    if (!nome || !nascimento) {
+        feedback.textContent = "⚠️ ALERTA: Nome e Data de Nascimento são obrigatórios para o registro!";
         style.color = "var(--detalhe-alerta)";
     } else {
         try {
