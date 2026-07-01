@@ -29,12 +29,6 @@ const enviarAluno = async () => {
     if (!nome || !nascimento) {
         feedback.textContent = "⚠️ ALERTA: Nome e Data de Nascimento são obrigatórios para o registro!";
         style.color = "var(--detalhe-alerta)";
-    } else if (!validarEmail(email)) {
-        feedback.textContent = "⚠️ ALERTA: Email inválido! Exemplo correto.: seuemail@email.com";
-        style.color = "var(--detalhe-alerta)";
-    } else if (telefone.length !== 15 || telefone.length !== 14) {
-        feedback.textContent = "⚠️ ALERTA: Telefone inválido! Quantidade de números menor que o necessário!";
-        style.color = "var(--detalhe-alerta)";
     } else {
         try {
             const options = {

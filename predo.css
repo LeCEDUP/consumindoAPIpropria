@@ -89,7 +89,7 @@ section, div.container {
     padding: 30px;
     margin: 40px auto;
     max-width: 850px;
-    color: #fff;
+    color: #ff00ff;
     box-shadow: 20px 20px 0px rgba(255, 0, 255, 0.5);
     position: relative;
 }
@@ -106,7 +106,7 @@ section::before {
 }
 
 input[type="text"],
-input[type="number"],
+input[type="date"],
 input[type="email"],
 input[type="tel"] {
     background: #111;
@@ -116,6 +116,21 @@ input[type="tel"] {
     width: 100%;
     box-sizing: border-box;
     margin: 10px 0;
+}
+
+.required-label::after {
+    content: " *";
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+input:required {
+    border-left: 5px solid #ff00ff !important;
+}
+
+input:required:focus:invalid {
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+    background: rgba(255, 0, 255, 0.05) !important;
 }
 
 input, button, select, textarea, label, span, p, div, li, h1, h2, h3 {
